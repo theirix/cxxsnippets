@@ -5,7 +5,7 @@
 class Fooclass {
 public:
   int method1(int x);
-	// method declared here only for checking. It can be absent
+  // method declared here only for checking. It can be absent
   int method2(int x, int y);
 };
   
@@ -13,11 +13,11 @@ public:
 typedef int (Fooclass::*UnknownMethod)(int, int);
 
 int Fooclass::method1(int x) { 
-	return x * 100; 
+  return x * 100; 
 }
 
 int Fooclass::method2(int x, int y) { 
-	return x * 100 + y; 
+  return x * 100 + y; 
 }
 
 int main(int argc, char *argv[]) {
@@ -25,7 +25,7 @@ int main(int argc, char *argv[]) {
 
   Fooclass instance{};
 
-	// Call method just to check result
+  // Call method just to check result
   int res_explicit = instance.method2(2, 20);
   printf("Result of explicit call %d\n", res_explicit);
   assert(res_explicit == 220);
@@ -42,7 +42,7 @@ int main(int argc, char *argv[]) {
   memcpy(&unknown_ptr, &raw2_ptr, sizeof(void *));
   printf("Address of method1 %p, method2 %p\n", raw1_ptr, raw2_ptr);
 
-	// Old weird syntax for method pointer calls
+  // Old weird syntax for method pointer calls
   int res_offset = ((instance).*(unknown_ptr))(2, 20);
   printf("Result of offset call %d\n", res_offset);
   assert(res_offset == 220);
